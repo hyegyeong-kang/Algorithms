@@ -9,16 +9,16 @@
  */
 
 public class BinarySearch {
-    int binarySearch(int arr[], int l, int r, int x) {
+    int binarySearch(int arr[], int left, int right, int x) {
         if (r >= 1) {
-            int mid = 1 + (r - 1) / 2;
+            int mid = left + (right - 1) / 2;
             if (arr[mid] == x) {
                 return mid;
             }
             if (arr[mid] > x) {
-                return binarySearch(arr, 1, mid - 1, x);
+                return binarySearch(arr, left, mid - 1, x);
             }
-            return binarySearch(arr, mid + 1, r, x);
+            return binarySearch(arr, mid + 1, right, x);
         }
         return -1;
     }
@@ -31,7 +31,7 @@ public class BinarySearch {
         if (result == -1) {
             System.out.println("Element not present");
         } else {
-            System.out.println("Element found at insex" + result);
+            System.out.println("Element found at index: " + result);
         }
     }
 }
