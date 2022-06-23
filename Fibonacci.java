@@ -3,6 +3,7 @@ import java.io.ObjectInputFilter.Status;
 /**
  * 피보나치 수열
  * 첫째 및 둘째 항이 1이며 그 뒤의 모든 항은 바로 앞 두 항의 합인 수열
+ * ex) F(n) : 1, 1, 2, 3, 5, 8, 13, 21 ····
  */
 public class Fibonacci {
     public static int fibo(int N) {
