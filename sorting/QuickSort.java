@@ -8,18 +8,34 @@
  */
 public class QuickSort {
     public static void quicksort(int arr[], int left, int right) {
-        int pivot = arr[(left + right) / 2];
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] < pivot) {
+        int pivot_index = (left + right) / 2;
+        int pivot = arr[pivot_index];
 
+        while(left < right) {
+            if (arr[pivot] >= arr[left]) {
+                left++;
+            }
+            if (arr[pivot] < arr[right]) {
+                right--;
+            }
+            if (left < right) {
+                swap(arr, left, right);
+                quicksort(arr, left, pivot);
+                quicksort(arr, pivot, right);
             }
         }
 
+
+    }
+    public static void swap(int arr[], int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
     }
     public static void main(String args[]) {
         int[] arr = {3, 7, 8, 2, 9};
         int n = arr.length;
-        quicksort(arr, 0, n);
+        quicksort(arr, 0, n - 1);
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i]);
         }
