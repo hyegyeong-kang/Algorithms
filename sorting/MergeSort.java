@@ -9,18 +9,29 @@
  * - 두 부분의 리스트를 다시 하나의 정렬된 리스트로 합병한다.
  * 
  * !! 추가적인 리스트가 필요함
+ * !! 사실상 리스트를 나누는 일은 시간복잡도가 없다. 원래 나눠져있는 것이라고 생각해도 된다.
  */
 
 public class MergeSort {
-    public static void mergesort(int arr[]) {
-        int length = arr.length;
-        
+    public static void partition(int left, int right) {
+        if (left == right) return;
+        if (left < right) {
+            int mid = (left + right) / 2;
+            partition(left, mid);
+            partition(mid + 1, right);
+            merge(left, right);
+        }
+    }
+    public static void merge(int left, int right) {
+        int mid = (left + right) / 2;
+
 
     }
     public static void main(String args[]) {
         int arr[] = { 12, 11, 13, 5, 6, 7 };
-        mergesort(arr);
-        for (int i = 0; i < arr.length ; i++) {
+        int n = arr.length;
+        partition(0, n - 1);
+        for (int i = 0; i < n ; i++) {
             System.out.println(arr[i]);
         }
     }
